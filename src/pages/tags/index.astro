@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/Layout.astro";
+import TagDiasplay from "../../components/TagDiasplay.astro";
+const posts = await getCollection("posts");
+
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+---
+
+<BaseLayout pageTitle={"Tags"}>
+  <h1>Recent Tags</h1>
+  <ul class="space-y-6 my-4">
+    <TagDiasplay tags={tags} />
+  </ul>
+</BaseLayout>

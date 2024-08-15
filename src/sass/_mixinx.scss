@@ -1,0 +1,6 @@
+@mixin hoverEffect($property, $value, $duration: 700ms, $flow: ease) {
+  &:hover {
+    transition: $property $duration $flow;
+    #{$property}: $value;
+  }
+}

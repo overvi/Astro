@@ -1,0 +1,71 @@
+---
+import Links from "./Links.astro";
+---
+
+<div class="menu-wrapper">
+  <button class="btn btn-text menu-toggle">
+    <svg
+      class="hamburger"
+      xmlns="http://www.w3.org/2000/svg"
+      width="50px"
+      height="50px"
+      viewBox="0 0 72 72"
+      id="emoji"
+    >
+      <g id="color"></g>
+      <g id="hair"></g>
+      <g id="skin"></g>
+      <g id="skin-shadow"></g>
+      <g id="line">
+        <line
+          x1="16"
+          x2="56"
+          y1="26"
+          y2="26"
+          fill="none"
+          stroke="#000000"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="2"></line>
+        <line
+          x1="16"
+          x2="56"
+          y1="36"
+          y2="36"
+          fill="none"
+          stroke="#000000"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="2"></line>
+        <line
+          x1="16"
+          x2="56"
+          y1="46"
+          y2="46"
+          fill="none"
+          stroke="#000000"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="2"></line>
+      </g>
+    </svg>
+  </button>
+
+  <div class="menu grid-rows-0">
+    <div class="menu-links">
+      <Links />
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggle = document.querySelector(".menu-toggle")!;
+  const content: HTMLDivElement = document.querySelector(".menu")!;
+
+  toggle?.addEventListener("click", () => {
+    content.classList.toggle("grid-rows-0");
+  });
+</script>

@@ -1,0 +1,73 @@
+@use "reset";
+@use "variables" as *;
+@use "utiles" as *;
+@use "mixinx" as *;
+
+.nav {
+  border: 1px solid #eee;
+  padding: map-get($sizes, "8");
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-links {
+    @include space-space-x;
+    display: none;
+  }
+  &-link {
+    transition: 700ms ease-in-out;
+
+    @include hoverEffect(color, gray);
+  }
+}
+
+.btn {
+  border: 0;
+  background: transparent;
+}
+
+.menu {
+  position: absolute;
+  background: #fff;
+  border: 1px solid rgba(gray, 0.2);
+  right: 1rem;
+  border-radius: 0.7rem;
+  left: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 13rem;
+  overflow: hidden;
+
+  a {
+    display: block;
+  }
+
+  &-links {
+    display: grid;
+    height: 11rem;
+    gap: 1rem;
+    margin-block: 1rem;
+    place-items: center;
+  }
+
+  &-toggle {
+    cursor: pointer;
+  }
+
+  &.grid-rows-0 {
+    grid-template-rows: 0rem;
+    border-color: #fff;
+  }
+
+  transition: 700ms ease-in;
+}
+
+@media (width > 700px) {
+  .menu-wrapper {
+    display: none;
+  }
+
+  .nav-links {
+    display: block;
+  }
+}

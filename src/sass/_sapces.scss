@@ -1,0 +1,32 @@
+@use "variables" as *;
+
+@mixin space-x($space: map-get($sizes, "8")) {
+  & > * {
+    margin-right: $space;
+  }
+}
+
+@mixin space-y($space: map-get($sizes, "8")) {
+  & > * + * {
+    margin-top: $space;
+  }
+}
+
+@each $key, $value in $sizes {
+  .p-#{$key} {
+    padding: $value;
+  }
+  .space-y-#{$key} {
+    & > * + * {
+      margin-top: $value;
+    }
+  }
+
+  .my-#{$key} {
+    margin-block: $value;
+  }
+
+  .gap-#{$key} {
+    gap: $value;
+  }
+}

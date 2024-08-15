@@ -1,27 +1,19 @@
 ---
+import { getCollection, getEntries, getEntry } from "astro:content";
+import BlogPost from "../components/BlogPost.astro";
+import "../css/main.css";
+import BaseLayout from "../layouts/Layout.astro";
 
+const pageTitle = "Blog";
+
+const post = await getEntry("posts", "post-2");
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <main>
-      <header>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/blog">Blog</a>
-        </nav>
-      </header>
-      <div>
-        <p>Simple Blog</p>
-      </div>
-    </main>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <div>
+    <p>Simple Blog</p>
+  </div>
+  <ul class="space-y-6 my-4">
+    {(<BlogPost url={`posts/${post.slug}`} title={post.data.title} />)}
+  </ul>
+</BaseLayout>
